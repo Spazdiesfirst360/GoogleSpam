@@ -7,10 +7,11 @@ package googlespam;
 
 import java.awt.Desktop;
 import java.net.URI;
+import java.util.Scanner;
 
 /**
  *
- * @author rugg1480e
+ * @author Spazdiesfirst360
  */
 public class GoogleSpam {
 
@@ -18,15 +19,24 @@ public class GoogleSpam {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        for(double i = 0; i < Double.POSITIVE_INFINITY; i++){
+        Scanner console = new Scanner(System.in);
+        System.out.println("[SYSTEM] What url would you like to use?");
+        String u = console.nextLine();
+        
+        System.out.println("[SYSTEM] How many tabs do you want opened?");
+        long times = console.nextLong();
+        
+        for(long i = 0; i < times; i++){
             try {
-            Desktop desktop = java.awt.Desktop.getDesktop();
-            URI oURL = new URI("http://www.google.com");
-            desktop.browse(oURL);
+                Desktop desktop = java.awt.Desktop.getDesktop();
+                URI oURL = new URI(u);
+                desktop.browse(oURL);
             } catch (Exception e) {
-            e.printStackTrace();
+                e.printStackTrace();
             }
         }
+        
+        System.out.println("[SYSTEM] Opened " + times + " tabs to " + u);
     }
     
 }
